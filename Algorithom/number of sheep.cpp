@@ -3,9 +3,10 @@ using namespace std;
 int main()
 {
     int ar[100],a,b,c,d,n;
-    cout<<"Number of Element-->";
+    cout<<"Number of sheep-->";
     cin>>n;
-
+    cout<<"The number you want to sort from backward-->";
+    cin>>a;
     for(int i=0;i<n;i++){
 
         cin>>ar[i];
@@ -13,7 +14,7 @@ int main()
     for(int i=1;i<n;i++){
         d=ar[i];
         int j=i-1;
-        while(j>=0&& ar[j]>d){
+        while(j>=n-a && ar[j]>=d){
             ar[j+1]=ar[j];
             j--;
         }
@@ -24,3 +25,4 @@ int main()
     }
     return 0;
 }
+
