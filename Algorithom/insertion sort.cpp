@@ -1,5 +1,17 @@
 #include<bits/stdc++.h>
 using namespace std;
+void insertionsort(int arr[],int n){
+    for(int i=1;i<n;i++){
+        int value,hole;
+        value=arr[i];
+        hole =i;
+        while(hole>0 && arr[hole-1]>value){
+            arr[hole]=arr[hole-1];
+            hole=hole-1;
+        }
+        arr[hole]=value;
+    }
+}
 int main()
 {
     int ar[100],a,b,c,d,n;
@@ -10,15 +22,7 @@ int main()
 
         cin>>ar[i];
     }
-    for(int i=1;i<n;i++){
-        d=ar[i];
-        int j=i-1;
-        while(j>=0&& ar[j]>d){
-            ar[j+1]=ar[j];
-            j--;
-        }
-        ar[j+1]=d;
-    }
+    insertionsort(ar,n);
     for(int i=0;i<n;i++){
         cout<<ar[i]<<" ";
     }
