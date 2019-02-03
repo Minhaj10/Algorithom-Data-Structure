@@ -18,7 +18,7 @@ void printMaxActivities(Activitiy arr[], int n)
 
     sort(arr, arr+n, activityCompare);
 
-    cout << "Following activities are selected n";
+
 
 
     int i = 0;
