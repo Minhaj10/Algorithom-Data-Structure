@@ -20,8 +20,12 @@ int MatrixChainOrder(int p[], int i, int j)
 int main()
 {
 
-    int arr[] = {1, 2, 3, 4, 3};
-    int n = sizeof(arr)/sizeof(arr[0]);
+    int arr[10000];
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
     cout << "Minimum number of multiplications is "<< MatrixChainOrder(arr,1,n - 1);
 }
 
