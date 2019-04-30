@@ -9,10 +9,6 @@ queue <int> QUEUE;
 
 int n,m,dist[ sizee],countt[ sizee ];
 
-//void read();
-//void solve();
-//int BellmanFord();
-
 void read()
 {
     scanf("%d %d", &n, &m);
@@ -65,7 +61,7 @@ void solve()
     {
         printf("%s","Ciclu negativ!");
     }
-   // fclose( stdout );
+
 };
 
 
