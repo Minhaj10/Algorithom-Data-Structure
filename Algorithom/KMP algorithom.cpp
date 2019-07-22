@@ -1,56 +1,97 @@
-#include <bits/stdc++.h>
-void computeLPSArray(char* pat, int M, int* lps);
-void KMPSearch(char* pat, char* txt)
+#include<bits/stdc++.h>
+using namespace std;
+
+void preKMP(string pattern, int f[])
+
 {
-    int M = strlen(pat);
-    int N = strlen(txt);
-    int lps[M];
-    computeLPSArray(pat, M, lps);
-    int i = 0,j=0;
-    while (i < N) {
-        if (pat[j] == txt[i]) {
-            j++;
-            i++;
-        }
-        if (j == M) {
-            printf("Found pattern at index %d ", i - j);
-            j = lps[j - 1];
-        }
-        else if (i < N && pat[j] != txt[i]) {
-            if (j != 0)
-                j = lps[j - 1];
+
+    int m = pattern.length(), k;
+
+    f[0] = -1;
+
+    for (int i = 1; i < m; i++)
+
+    {
+
+        k = f[i - 1];
+
+        while (k >= 0)
+
+        {
+
+            if (pattern[k] == pattern[i - 1])
+
+                break;
+
             else
-                i = i + 1;
+
+                k = f[k];
+
         }
+
+        f[i] = k + 1;
+
     }
+
 }
-void computeLPSArray(char* pat, int M, int* lps)
+bool KMP(string pattern, string target)
+
 {
-    int len = 0,i=1;
-    lps[0] = 0;
-    while (i < M) {
-        if (pat[i] == pat[len]) {
-            len++;
-            lps[i] = len;
+
+    int m = pattern.length();
+
+    int n = target.length();
+
+    int f[m];
+
+    preKMP(pattern, f);
+
+    int i = 0;
+
+    int k = 0;
+
+    while (i < n)
+    {
+        if (k == -1)
+        {
             i++;
+
+            k = 0;
         }
+
+        else if (target[i] == pattern[k])
+        {
+            i++;
+
+            k++;
+
+            if (k == m)
+
+                return 1;
+        }
+
         else
-        { if (len != 0) {
-                len = lps[len - 1];
-            }
-            else
-            {
-                lps[i] = 0;
-                i++;
-            }
-        }
+
+            k = f[k];
+
     }
+    return 0;
+
 }
 int main()
+
 {
-    char txt[10000],pat[100000];
-    gets(txt);
-    gets(pat);
-    KMPSearch(pat, txt);
+    string tar,pat;
+    int n,a,b;
+    cin>>n;
+    while(n--){
+      cin>>tar>>a;
+      for(int i=0;i<a;i++){
+        cin>>pat;
+        if (KMP(pat, tar)) cout<<"y"<<endl;
+        else cout<<"n"<<endl;
+      }
+    }
     return 0;
+
 }
