@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long int ll;
+
 int dp[1000][1000];
 int isSubsetSum(int set[], int n, int sum)
 {
@@ -14,9 +15,12 @@ int isSubsetSum(int set[], int n, int sum)
     }
 
 	if (set[n - 1] > sum)
-		return dp[n-1][sum]=isSubsetSum(set, n - 1, sum);
+		 return dp[n-1][sum]=isSubsetSum(set, n - 1, sum);
     else
-	return dp[n-1][sum]=isSubsetSum(set, n - 1, sum) || isSubsetSum(set, n - 1, sum - set[n - 1]);
+	return  dp[n-1][sum]=isSubsetSum(set, n - 1, sum) + isSubsetSum(set, n - 1, sum - set[n - 1]);
+
+
+    return dp[n][sum];
 }
 
 
@@ -26,22 +30,15 @@ int main()
 	int n;
 	cin>>n;
 	int set[n+5];
-	int sum=0;
 	for(ll i=0;i<n;i++){
         cin>>set[i];
-        sum+=set[i];
 	}
-
-    if(sum%2==1){
-        cout<<"NOT found"<<endl;
-    }
-    else{
-            sum/=2;
-	if (isSubsetSum(set, n, sum))
-		printf("Found a EQUAL subset partition ");
+	int sum;
+	cin>>sum;
+	if (isSubsetSum(set, n, sum)>0)
+		cout<<isSubsetSum(set,n,sum)<<endl;
 	else
-		printf("Not found");
-    }
+		printf("No subset with given sum");
 	return 0;
 }
 
