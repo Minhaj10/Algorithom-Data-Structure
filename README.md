@@ -1,2 +1,2 @@
-# Algorithom & data structure
+# Algorithom & Data structure
 
