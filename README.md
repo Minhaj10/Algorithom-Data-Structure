@@ -1,2 +1,2 @@
-# Algorithom
-by Komol sir
+# Algorithom & data structure
+
