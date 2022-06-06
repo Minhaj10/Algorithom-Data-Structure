@@ -49,10 +49,6 @@ int main()
             cnt++;
             bfs(i,vis,arr);
         }
-        for(auto it:vis){
-            cout<<it<<" ";
-        }
-        cout<<endl;
     }
 
     cout<<cnt<<endl;
