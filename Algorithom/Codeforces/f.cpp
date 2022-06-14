@@ -73,93 +73,21 @@ void solve()
         mp[arr[i]%10]++;
     }
 
-    if(mp[1]>=3){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[2]>=1 && mp[1]>=1 && mp[0]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[3]>=1 && mp[0]>=2){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[9]>=1 && mp[1]>=1 && mp[3]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[9]>=1 && mp[2]>=2){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[9]>=1 && mp[3]>=1 && mp[1]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[9]>=1 && mp[4]>=1 && mp[0]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[8]>=1 && mp[5]>=1 && mp[0]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[8]>=1 && mp[4]>=1 && mp[1]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[8]>=1 && mp[3]>=1 && mp[2]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[7]>=1 && mp[6]>=1 && mp[0]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[7]>=1 && mp[5]>=1 && mp[1]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[7]>=1 && mp[4]>=1 && mp[2]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[7]>=1 && mp[3]>=2){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[6]>=2 && mp[1]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[6]>=1 && mp[4]>=1 && mp[3]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[6]>=1 && mp[2]>=1 && mp[5]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[5]>=1 && mp[4]>=2){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[5]>=1 && mp[7]>=1 && mp[1]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[5]>=1 && mp[6]>=1 && mp[2]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[5]>=2&& mp[3]>=1){
-        cout<<"YES"<<endl;
-    }
 
-    else if(mp[5]>=1 && mp[4]>=2){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[6]>=1 && mp[8]>=1 && mp[9]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[9]>=2 && mp[5]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[7]>=2 && mp[9]>=1){
-        cout<<"YES"<<endl;
-    }
-    else if(mp[8]>=2 && mp[7]>=1){
-        cout<<"YES"<<endl;
-    }
-
-    else if(mp[2]>=2 && mp[9]>=1){
-        cout<<"YES"<<endl;
+    for(ll i=0;i<=9;i++){
+        for(ll j=0;j<=9;j++){
+            for(ll k=i+1;k<=9;k++){
+                if((mp[i]>=1 && mp[j]>=1 && mp[k]>=1 ) && (i+j+k)%10==3){
+                    cout<<"YES"<<endl;
+                    return;
+                }
+            }
+        }
     }
 
 
 
-    else cout<<"NO"<<endl;
+    cout<<"NO"<<endl;
 
 
 
