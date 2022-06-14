@@ -51,25 +51,8 @@ void dfs(int node,int edge)
 void solve()
 {
 
-    ll n,a,m,b,c,d,k;
-    ll track=0;
-    ll mx;
-    ll point=20,sum=0;
-    ll flag=0;
-    string s;
-    string s1,s2;
-    set<int>st;
 
 
-    cin>>n;
-    ll arr[n+5];
-    ll arr1[n+5];
-
-
-    for(ll i=0; i<n; i++)
-    {
-        cin>>arr[i];
-    }
 
 
 
@@ -83,8 +66,33 @@ int main()
 
     ll t;
     cin>>t;
-    while(t--)
-        solve();
+    while(t--){
+    ll n,a,m,b,c,d,k;
+    ll track=0;
+    ll mx;
+    ll point=20,sum=0;
+    ll flag=0;
+    string s;
+    string s1,s2;
+    set<int>st;
+
+
+    cin>>a>>b>>c>>d;
+
+    ll cnt=0;
+
+    if(b>a){
+        cnt++;
+    }
+    if(c>a){
+        cnt++;
+    }
+    if(d>a){
+        cnt++;
+    }
+
+    cout<<cnt<<endl;
+    }
 
 }
 

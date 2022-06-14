@@ -84,8 +84,30 @@ int main()
     ll t;
     cin>>t;
     while(t--)
-        solve();
+    {
+        char arr[8][8];
 
+        for(ll i=0;i<8;i++){
+            for(ll j=0;j<8;j++){
+                cin>>arr[i][j];
+            }
+        }
+
+        ll col,row;
+        for(ll i=0;i<8;i++){
+            for(ll j=0;j<8;j++){
+                if(i>0 && j> 0 && arr[i][j]=='#' && arr[i-1][j-1]=='#' && arr[i-1][j+1]=='#' && arr[i+1][j-1]=='#' && arr[i+1][j+1]=='#'){
+                   col=i+1;
+                   row=j+1;
+                   break;
+                }
+            }
+
+    }
+
+    cout<<col<<" "<<row<<endl;
+
+}
 }
 
 

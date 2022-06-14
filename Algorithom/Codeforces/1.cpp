@@ -59,9 +59,10 @@ void solve()
     string s;
     string s1,s2;
     set<int>st;
+    deque<int>dq;
 
 
-    cin>>n;
+    cin>>n>>a;
     ll arr[n+5];
     ll arr1[n+5];
 
@@ -69,6 +70,48 @@ void solve()
     for(ll i=0; i<n; i++)
     {
         cin>>arr[i];
+        dq.push_back(arr[i]);
+        sum+=arr[i];
+    }
+
+    if(sum==a){
+        cout<<0<<endl;
+        return;
+    }
+    ll cnt=0;
+    while(sum>a){
+
+        if(dq.back()==1){
+            sum--;
+            cnt++;
+            dq.pop_back();
+        }
+        if(dq.back()==0){
+            cnt++;
+            dq.pop_back();
+        }
+        if(sum==a){
+            break;
+        }
+        if(dq.front()==1){
+            sum--;
+            cnt++;
+            dq.pop_front();
+        }
+        if(dq.front()==0){
+            cnt++;
+            dq.pop_front();
+        }
+        if(sum==a){
+            break;
+        }
+    }
+
+    if(sum<a){
+        cout<<-1<<endl;
+    }
+    else{
+        cout<<cnt<<endl;
     }
 
 

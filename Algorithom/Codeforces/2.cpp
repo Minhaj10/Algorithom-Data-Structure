@@ -53,7 +53,7 @@ void solve()
 
     ll n,a,m,b,c,d,k;
     ll track=0;
-    ll mx;
+
     ll point=20,sum=0;
     ll flag=0;
     string s;
@@ -65,11 +65,38 @@ void solve()
     ll arr[n+5];
     ll arr1[n+5];
 
-
+    map<int,int>mp;
     for(ll i=0; i<n; i++)
     {
         cin>>arr[i];
+        mp[arr[i]]++;
+        st.insert(arr[i]);
     }
+
+    if(mp.size()==n){
+        cout<<n<<endl;
+    }
+    else{
+        sort(arr,arr+n);
+        ll cnt=0;
+        for(int i=1;i<n;i++){
+            if(arr[i]==arr[i-1]){
+                cnt++;
+            }
+        }
+
+
+        if(cnt%2==0){
+            cout<<n-cnt<<endl;
+        }
+        else{
+            cout<<n-cnt-1<<endl;
+        }
+    }
+
+
+
+
 
 
 
